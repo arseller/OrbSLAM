@@ -1,0 +1,17 @@
+<launch>
+
+    <include file="$(find orb_slam2_ros)/lg940018/launch/slam_loc.launch"/>
+
+    <param name="video_path" value="/home/leonardo/slam/"/>
+    <param name="video_name" value="loc_driverless_scenario2.avi"/>
+    <param name="rospy_rate" value="50"/>
+    <param name="video_width" value="640"/>
+    <param name="video_height" value="360"/>
+
+
+    <node type="rviz" name="rviz" pkg="rviz" />
+    <node type="slam_publisher.py" name="image_publisher" pkg="orb_slam2_ros" output="screen"/>
+    <node type="path_publisher.py" name="path_publisher_loc" pkg="orb_slam2_ros" output="screen"/>
+
+
+</launch>
